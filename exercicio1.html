@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IMC</title>
+</head>
+<style>
+    h1 {
+        text-align: center;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    #peso {
+        width: 250px;
+        font-size: 15px;
+        margin: 20px auto;
+        border: 0;
+        border-bottom: 2px solid rgba(0, 0, 0, 0.31);
+        outline: 0;
+        transition: ease-in-out;
+    }
+
+    #peso:focus {
+        border-bottom: 2px solid cornflowerblue;
+    }
+
+    #peso:valid {
+        border-bottom: 2px solid cornflowerblue;
+    }
+
+    #altura {
+        width: 250px;
+        font-size: 15px;
+        margin: 20px auto;
+        border: 0;
+        border-bottom: 2px solid rgba(0, 0, 0, 0.31);
+        outline: 0;
+        transition: ease-in-out;
+    }
+
+    #altura:focus {
+        border-bottom: 2px solid cornflowerblue;
+    }
+
+    #altura:valid {
+        border-bottom: 2px solid cornflowerblue;
+    }
+
+
+    #submit {
+        width: 70px;
+        height: 30px;
+        text-align: center;
+        background-color: rgba(0, 0, 0, 0.31);
+        border: none;
+        border-radius: 10px;
+        position: relative;
+        margin: 10px;
+        left: -90px;
+        color: back;
+
+    }
+
+    #submit:hover {
+        background-color: cornflowerblue ;
+        cursor: pointer;
+
+    }
+
+    #imc{
+        display: flex;
+        
+        width: 35%;
+        height: 60%;
+        border:2px solid  rgba(0, 0, 0, 0.31);
+        margin: 20px auto;
+        position: absolute;
+        left: 35%;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        font-size: 2em;
+        font-family: Arial, Helvetica, sans-serif;
+        color: rgba(0, 0, 0, 0.571) ;
+        text-align: center;
+    }
+
+
+    @media screen and (max-width:800px) {
+
+        #imc{
+            font-size: 1.1em;
+        }
+        
+    }
+</style>
+
+<body>
+    <h1>
+        Índice de Massa Corporal
+    </h1>
+
+    <form action="#">
+        <input type="number" name="pesox" id="peso" placeholder="Digite seu peso" required>
+        <label for="peso"></label>
+        <input type="number" name="alturax" id="altura" placeholder="Digite sua altura (Em metros!)" required>
+        <label for="altra"></label>
+        <input id="submit" type="button" value="Enviar" onclick="somar()">
+    </form>
+    <div id="imc">
+        SEU IMC É:
+    </div>
+
+
+
+    <script>
+        function somar(){
+            let pesox = document.getElementById('peso')
+            let alturax = document.getElementById('altura')
+            let resultadoIMC = document.getElementById('imc')
+
+            let pesoIMC = Number(pesox.value)
+            let alturaIMC = Number(alturax.value)
+            let imcValue = pesoIMC/(alturaIMC*alturaIMC)
+
+            resultadoIMC.innerHTML = `<p>SEU IMC É: <strong>${imcValue}</strong></p>`
+        }
+
+    </script>
+</body>
+
+</html>
