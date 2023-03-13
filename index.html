@@ -135,7 +135,7 @@
             let alturaIMC = Number(alturax.value)
             let imcValue = pesoIMC/(alturaIMC*alturaIMC)
 
-            resultadoIMC.innerHTML = `<p>SEU IMC É: <strong>${imcValue}</strong></p>`
+            resultadoIMC.innerHTML = `<p>SEU IMC É: <strong>${imcValue.toFixed(2)}</strong></p>`
         }
 
     </script>
